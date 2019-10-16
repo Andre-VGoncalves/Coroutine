@@ -6,13 +6,10 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
 class ItemInterector {
-
     private val service: API = RetrofitService.getService()
 
-
-    suspend fun validateUserSession() =
-        withContext(Dispatchers.IO) {
-            service.userId()
-        }
-
+     suspend fun getUsers() =
+         withContext(Dispatchers.IO) {
+             service.users()
+         }
 }

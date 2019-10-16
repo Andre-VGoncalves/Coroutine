@@ -8,22 +8,22 @@ import java.util.concurrent.TimeUnit
 
 object RetrofitService {
 
-        private const val API_URL = "https://jsonplaceholder.typicode.com"
-
-    private val httpLoggingInterceptor = HttpLoggingInterceptor().apply {
-        level = HttpLoggingInterceptor.Level.BODY
-    }
-
-    private val httpClient = OkHttpClient.Builder()
-        .readTimeout(30, TimeUnit.SECONDS)
-        .connectTimeout(30, TimeUnit.SECONDS)
-        .writeTimeout(30, TimeUnit.SECONDS)
-        .addInterceptor(httpLoggingInterceptor)
-        .build()
+    private const val API_URL = "https://jsonplaceholder.typicode.com"
+//com
+//    private val httpLoggingInterceptor = HttpLoggingInterceptor().apply {
+//        level = HttpLoggingInterceptor.Level.BODY
+//    }
+//
+//    private val httpClient = OkHttpClient.Builder()
+//        .readTimeout(30, TimeUnit.SECONDS)
+//        .connectTimeout(30, TimeUnit.SECONDS)
+//        .writeTimeout(30, TimeUnit.SECONDS)
+//        .addInterceptor(httpLoggingInterceptor)
+//        .build()
 
     private val retrofit: Retrofit = Retrofit.Builder()
         .baseUrl(API_URL)
-        .client(httpClient)
+//        .client(httpClient)
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 

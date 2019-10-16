@@ -32,7 +32,7 @@ class MainFragment : Fragment() {
     }
 
     fun callApi () {
-        viewModel.teste()
+        viewModel.callUsers()
     }
 
 }

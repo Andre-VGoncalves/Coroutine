@@ -8,11 +8,9 @@ import kotlin.coroutines.CoroutineContext
 
 abstract class BaseViewModel : ViewModel(), CoroutineScope {
     private val job = Job()
-    override val coroutineContext: CoroutineContext = job + Dispatchers.IO
+    override val coroutineContext: CoroutineContext = job + Dispatchers.Main
 
-    abstract fun initialize()
-
-    open fun finalize() {
+    override fun onCleared() {
         job.cancel()
     }
 }
